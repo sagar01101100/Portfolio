@@ -1,0 +1,38 @@
+{
+  "experience": [
+    {
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Larsen_%26_Toubro_logo.svg/512px-Larsen_%26_Toubro_logo.svg.png",
+      "title": "Digital Specialist Engineer",
+      "company": "Infosys Limited · Full-time",
+      "date": "Apr 2026 - Present · 1 mos",
+      "location": "Mysore, Karnataka, India · On-site",
+      "description": ""
+    },
+    {
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Larsen_%26_Toubro_logo.svg/512px-Larsen_%26_Toubro_logo.svg.png",
+      "title": "Graduate Engineering Trainee",
+      "company": "Larsen & Toubro · Full-time",
+      "date": "Sep 2025 - Mar 2026 · 6 mos",
+      "location": "Surat, Gujarat, India · On-site",
+      "description": ""
+    }
+  ],
+  "education": [
+    {
+      "logoUrl": "https://upload.wikimedia.org/wikipedia/en/thumb/5/52/Indian_Institute_of_Technology_Patna_Logo.svg/512px-Indian_Institute_of_Technology_Patna_Logo.svg.png",
+      "title": "Indian Institute of Technology, Patna",
+      "company": "Bachelor of Technology - BTech, Computer Science & Engineering",
+      "date": "Jul 2021 \u2013 May 2025",
+      "location": "",
+      "description": "💎 MySQL and SQL"
+    },
+    {
+      "logoUrl": "https://ui-avatars.com/api/?name=RM&background=4a5568&color=fff&size=128",
+      "title": "Raiganj Mohanbati High School",
+      "company": "Higher Secondary, Science",
+      "date": "Mar 2018 \u2013 Mar 2020",
+      "location": "",
+      "description": ""
+    }
+  ]
+}
