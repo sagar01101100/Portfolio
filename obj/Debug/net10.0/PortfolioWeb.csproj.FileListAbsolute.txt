@@ -98,3 +98,4 @@ F:\My Files\Projects\GoogleAnitGravity\PortfolioWeb\obj\Debug\net10.0\compressed
 F:\My Files\Projects\GoogleAnitGravity\PortfolioWeb\obj\Debug\net10.0\compressed\fzj5s3wbyv-{0}-eoa14u7qp3-eoa14u7qp3.gz
 F:\My Files\Projects\GoogleAnitGravity\PortfolioWeb\obj\Debug\net10.0\compressed\9x6ny0u9mo-{0}-9uyhc2w4tv-9uyhc2w4tv.gz
 F:\My Files\Projects\GoogleAnitGravity\PortfolioWeb\obj\Debug\net10.0\compressed\zrsk19e7ql-{0}-bvzvcdrwha-bvzvcdrwha.gz
+F:\My Files\Projects\GoogleAnitGravity\PortfolioWeb\obj\Debug\net10.0\PortfolioWeb.sourcelink.json
