@@ -1,0 +1,38 @@
+<h2>Personalization</h2>
+<p>Customize your Dev OS experience.</p>
+
+<div class="settings-group" style="margin-top: 30px;">
+    <h3>Theme</h3>
+    <div style="display: flex; gap: 15px; margin-top: 10px;">
+        <button class="settings-btn" onclick="window.setTheme('dark')">Dark Mode</button>
+        <button class="settings-btn" onclick="window.setTheme('light')">Light Mode</button>
+    </div>
+</div>
+
+<div class="settings-group" style="margin-top: 30px;">
+    <h3>Wallpaper</h3>
+    <div style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap;">
+        <button class="settings-btn wallpaper-btn"
+            onclick="window.setWallpaper('/images/walpaper_0001.png')">Default</button>
+        <button class="settings-btn wallpaper-btn"
+            onclick="window.setWallpaper('https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=2070')">Abstract
+            Tech</button>
+        <button class="settings-btn wallpaper-btn"
+            onclick="window.setWallpaper('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000')">Minimalist</button>
+    </div>
+    <input type="text" id="custom-wallpaper" placeholder="Or paste image URL..."
+        style="width: 100%; margin-top: 10px; padding: 10px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); color: var(--text-primary); border-radius: 6px;"
+        onchange="window.setWallpaper(this.value)">
+</div>
+
+<div class="settings-group" style="margin-top: 30px;">
+    <h3>Typography</h3>
+    <select id="font-selector"
+        style="width: 100%; padding: 10px; background: rgba(0,0,0,0.2); border: 1px solid var(--glass-border); color: var(--text-primary); border-radius: 6px; font-family: inherit;"
+        onchange="window.setFont(this.value)">
+        <option value="'Outfit', sans-serif">Outfit (Default)</option>
+        <option value="'Inter', sans-serif">Inter</option>
+        <option value="'Roboto', sans-serif">Roboto</option>
+        <option value="'Courier New', monospace">Courier New (Hacker)</option>
+    </select>
+</div>

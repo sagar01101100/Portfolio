@@ -1,0 +1,52 @@
+[
+  {
+    "id": "about",
+    "icon": "👨‍💻",
+    "tooltip": "About Me",
+    "windowTitle": "about_me.txt",
+    "type": "about"
+  },
+  {
+    "id": "experience",
+    "icon": "💼",
+    "tooltip": "Experience",
+    "windowTitle": "timeline.exe",
+    "type": "experience"
+  },
+  {
+    "id": "projects",
+    "icon": "🚀",
+    "tooltip": "Projects",
+    "windowTitle": "projects_directory",
+    "type": "projects",
+    "width": 900,
+    "height": 600
+  },
+  {
+    "id": "tech",
+    "icon": "🧠",
+    "tooltip": "Tech Stack",
+    "windowTitle": "system_specs.sys",
+    "type": "tech"
+  },
+  {
+    "id": "contact",
+    "icon": "💬",
+    "tooltip": "Contact",
+    "windowTitle": "terminal_contact.sh",
+    "type": "html",
+    "contentUrl": "/data/contact.html",
+    "width": 600,
+    "height": 500
+  },
+  {
+    "id": "settings",
+    "icon": "⚙️",
+    "tooltip": "Settings",
+    "windowTitle": "settings.ini",
+    "type": "html",
+    "contentUrl": "/data/settings.html",
+    "width": 500,
+    "height": 500
+  }
+]

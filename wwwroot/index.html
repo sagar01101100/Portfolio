@@ -1,203 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dev OS Portfolio</title>
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+
     <link rel="stylesheet" href="./css/site.css" />
 </head>
+
 <body>
     <main role="main" class="desktop">
-        
-<!-- Taskbar / Dock -->
-<div class="taskbar">
-    <div class="taskbar-icon" data-target="about" data-tooltip="About Me">👨‍💻</div>
-    <div class="taskbar-icon" data-target="experience" data-tooltip="Experience">💼</div>
-    <div class="taskbar-icon" data-target="projects" data-tooltip="Projects">🚀</div>
-    <div class="taskbar-icon" data-target="tech" data-tooltip="Tech Stack">🧠</div>
-    <div class="taskbar-icon" data-target="contact" data-tooltip="Contact">💬</div>
-</div>
 
-<!-- About Me Window -->
-<div class="os-window" id="window-about">
-    <div class="window-header">
-        <div class="window-controls">
-            <button class="control-btn btn-close"></button>
-            <button class="control-btn btn-min"></button>
-            <button class="control-btn btn-max"></button>
-        </div>
-        <div class="window-title">about_me.txt</div>
-        <div style="width: 44px;"></div> <!-- Spacer for flex alignment -->
-    </div>
-    <div class="window-content">
-        <h1>Hello, World! 👋</h1>
-        <p>I'm a passionate full-stack developer who loves building products that live on the intersection of design and engineering.</p>
-        <p>My goal is to build scalable, robust systems with ASP.NET Core while ensuring the frontend experience is flawlessly interactive and beautiful.</p>
-        
-        <h2 style="margin-top: 30px;">Core Competencies</h2>
-        <ul style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.8;">
-            <li>Backend Architecture & API Design</li>
-            <li>Database Optimization & EF Core</li>
-            <li>Modern Frontend & Interactive UI/UX</li>
-            <li>Cloud Deployment & CI/CD Pipelines</li>
-        </ul>
-    </div>
-</div>
-
-<!-- Experience Window -->
-<div class="os-window" id="window-experience">
-    <div class="window-header">
-        <div class="window-controls">
-            <button class="control-btn btn-close"></button>
-            <button class="control-btn btn-min"></button>
-            <button class="control-btn btn-max"></button>
-        </div>
-        <div class="window-title">timeline.exe</div>
-        <div style="width: 44px;"></div>
-    </div>
-    <div class="window-content">
-        <div style="display: flex; justify-content: space-between; align-items: center;">
-            <h2 style="margin: 0;">Experience & Education</h2>
-            <a href="#" style="padding: 8px 16px; background: var(--accent-color); color: white; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem; transition: background 0.2s; border: 1px solid rgba(255,255,255,0.1);">📄 Resume</a>
-        </div>
-        <div class="timeline" id="experience-timeline" style="margin-top: 30px;">
+        <!-- Taskbar / Dock -->
+        <div class="taskbar" id="dock-container">
             <!-- Rendered dynamically via os-core.js -->
         </div>
-    </div>
-</div>
 
-<!-- Projects Window -->
-<div class="os-window" id="window-projects" style="width: 900px; height: 600px;">
-    <div class="window-header">
-        <div class="window-controls">
-            <button class="control-btn btn-close"></button>
-            <button class="control-btn btn-min"></button>
-            <button class="control-btn btn-max"></button>
-        </div>
-        <div class="window-title">projects_directory</div>
-        <div style="width: 44px;"></div>
-    </div>
-    <div class="window-content">
-        <h2>Featured Projects</h2>
-        <div class="projects-grid" style="margin-top: 20px;">
-            <div class="project-card">
-                <h3>E-Commerce Platform</h3>
-                <p>A full-stack e-commerce solution with real-time inventory and Stripe payment integration.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">.NET Core</span>
-                    <span class="tech-tag">SQL</span>
-                    <span class="tech-tag">Stripe</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>Real-time Analytics</h3>
-                <p>SignalR based real-time dashboard visualizing thousands of data points per second.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">SignalR</span>
-                    <span class="tech-tag">Chart.js</span>
-                    <span class="tech-tag">Redis</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <h3>Dev OS Portfolio</h3>
-                <p>You are looking at it! A custom-built window management engine simulating a desktop OS.</p>
-                <div class="tech-tags">
-                    <span class="tech-tag">Vanilla JS</span>
-                    <span class="tech-tag">CSS3</span>
-                    <span class="tech-tag">ASP.NET</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Tech Stack Window -->
-<div class="os-window" id="window-tech">
-    <div class="window-header">
-        <div class="window-controls">
-            <button class="control-btn btn-close"></button>
-            <button class="control-btn btn-min"></button>
-            <button class="control-btn btn-max"></button>
-        </div>
-        <div class="window-title">system_specs.sys</div>
-        <div style="width: 44px;"></div>
-    </div>
-    <div class="window-content">
-        <h2>Technical Arsenal</h2>
-        <div style="display: flex; gap: 40px; margin-top: 30px; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 200px;">
-                <h3 style="color: var(--accent-color);">Backend</h3>
-                <ul style="list-style: none; padding: 0; line-height: 2;">
-                    <li>C# / .NET 8</li>
-                    <li>ASP.NET Core Web API</li>
-                    <li>Entity Framework Core</li>
-                    <li>SQL Server / PostgreSQL</li>
-                    <li>Microservices Architecture</li>
-                </ul>
-            </div>
-            <div style="flex: 1; min-width: 200px;">
-                <h3 style="color: var(--accent-color);">Frontend</h3>
-                <ul style="list-style: none; padding: 0; line-height: 2;">
-                    <li>JavaScript (ES6+) / TypeScript</li>
-                    <li>React / Vue.js</li>
-                    <li>HTML5 Canvas API</li>
-                    <li>Advanced CSS / Tailwind</li>
-                    <li>WebSockets / SignalR</li>
-                </ul>
-            </div>
-            <div style="flex: 1; min-width: 200px;">
-                <h3 style="color: var(--accent-color);">DevOps & Tools</h3>
-                <ul style="list-style: none; padding: 0; line-height: 2;">
-                    <li>Git & GitHub Actions</li>
-                    <li>Docker & Containers</li>
-                    <li>Azure Cloud Services</li>
-                    <li>Unit Testing (xUnit)</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Contact Window -->
-<div class="os-window" id="window-contact" style="width: 600px; height: 500px;">
-    <div class="window-header">
-        <div class="window-controls">
-            <button class="control-btn btn-close"></button>
-            <button class="control-btn btn-min"></button>
-            <button class="control-btn btn-max"></button>
-        </div>
-        <div class="window-title">terminal_contact.sh</div>
-        <div style="width: 44px;"></div>
-    </div>
-    <div class="window-content">
-        <h2>Establish Connection</h2>
-        <p>Looking to start a project together? Send a transmission.</p>
-        <div class="contact-form" style="margin-top: 30px;">
-            <input type="text" placeholder="Your Name" />
-            <input type="email" placeholder="Your Email" />
-            <textarea rows="4" placeholder="Message Body..."></textarea>
-            <button>Send Message</button>
-        </div>
-        
-        <div style="margin-top: 40px; text-align: center;">
-            <p style="margin-bottom: 10px;">Or connect via external nodes:</p>
-            <div style="display: flex; justify-content: center; gap: 20px;">
-                <a href="#" style="color: var(--accent-color); text-decoration: none;">GitHub</a>
-                <a href="#" style="color: var(--accent-color); text-decoration: none;">LinkedIn</a>
-                <a href="#" style="color: var(--accent-color); text-decoration: none;">Twitter</a>
-            </div>
-        </div>
-    </div>
-</div>
+        <!-- Desktop Environment (Windows injected here) -->
+        <div id="desktop-windows"></div>
 
     </main>
 
     <script src="./js/os-core.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,17 @@
+[
+  {
+    "title": "E-Commerce Platform",
+    "description": "A full-stack e-commerce solution with real-time inventory and Stripe payment integration.",
+    "tags": [".NET Core", "SQL", "Stripe"]
+  },
+  {
+    "title": "Real-time Analytics",
+    "description": "SignalR based real-time dashboard visualizing thousands of data points per second.",
+    "tags": ["SignalR", "Chart.js", "Redis"]
+  },
+  {
+    "title": "Dev OS Portfolio",
+    "description": "You are looking at it! A custom-built window management engine simulating a desktop OS.",
+    "tags": ["Vanilla JS", "CSS3", "ASP.NET"]
+  }
+]

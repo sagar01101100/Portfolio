@@ -1,0 +1,13 @@
+{
+  "greeting": "Hello, World! 👋",
+  "bioParagraphs": [
+    "I'm a passionate full-stack developer who loves building products that live on the intersection of design and engineering.",
+    "My goal is to build scalable, robust systems with ASP.NET Core while ensuring the frontend experience is flawlessly interactive and beautiful."
+  ],
+  "competencies": [
+    "Backend Architecture & API Design",
+    "Database Optimization & EF Core",
+    "Modern Frontend & Interactive UI/UX",
+    "Cloud Deployment & CI/CD Pipelines"
+  ]
+}

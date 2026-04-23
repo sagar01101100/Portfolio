@@ -1,0 +1,31 @@
+[
+  {
+    "category": "Backend",
+    "skills": [
+      "C# / .NET 8",
+      "ASP.NET Core Web API",
+      "Entity Framework Core",
+      "SQL Server / PostgreSQL",
+      "Microservices Architecture"
+    ]
+  },
+  {
+    "category": "Frontend",
+    "skills": [
+      "JavaScript (ES6+) / TypeScript",
+      "React / Vue.js",
+      "HTML5 Canvas API",
+      "Advanced CSS / Tailwind",
+      "WebSockets / SignalR"
+    ]
+  },
+  {
+    "category": "DevOps & Tools",
+    "skills": [
+      "Git & GitHub Actions",
+      "Docker & Containers",
+      "Azure Cloud Services",
+      "Unit Testing (xUnit)"
+    ]
+  }
+]

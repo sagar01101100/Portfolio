@@ -1,6 +1,7 @@
 /* DEV OS - Design System */
 
 :root {
+    /* Dark Theme (Default) */
     --os-bg: #050505;
     --os-bg-accent: #0f0f13;
     --glass-bg: rgba(20, 20, 25, 0.6);
@@ -15,16 +16,30 @@
     --window-border-radius: 12px;
 }
 
+[data-theme="light"] {
+    --os-bg: #f3f4f6;
+    --os-bg-accent: #e5e7eb;
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    
+    --text-primary: #1f2937;
+    --text-secondary: #4b5563;
+    --accent-color: #4f46e5;
+    --accent-hover: #4338ca;
+}
+
 body, html {
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    font-family: 'Outfit', sans-serif;
+    font-family: var(--font-family, 'Outfit', sans-serif);
     background-color: var(--os-bg);
     color: var(--text-primary);
     user-select: none;
+    transition: background-color 0.3s, color 0.3s, font-family 0.3s;
 }
 
 /* Desktop Environment */
@@ -308,8 +323,8 @@ body, html {
     background: rgba(0,0,0,0.2);
     border: 1px solid var(--glass-border);
     border-radius: 6px;
-    color: white;
-    font-family: 'Outfit', sans-serif;
+    color: var(--text-primary);
+    font-family: inherit;
 }
 .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent-color); }
 .contact-form button {
@@ -323,3 +338,25 @@ body, html {
     transition: background 0.2s;
 }
 .contact-form button:hover { background: var(--accent-hover); }
+
+/* Settings Buttons */
+.settings-btn {
+    padding: 8px 16px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid var(--glass-border);
+    color: var(--text-primary);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.settings-btn:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--accent-color);
+}
+[data-theme="light"] .settings-btn {
+    background: rgba(255,255,255,0.5);
+}
+[data-theme="light"] .contact-form input, 
+[data-theme="light"] .contact-form textarea {
+    background: rgba(255,255,255,0.5);
+}
