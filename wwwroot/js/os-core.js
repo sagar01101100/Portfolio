@@ -38,8 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 const win = document.createElement('div');
                 win.className = 'os-window';
                 win.id = `window-${app.id}`;
-                if (app.width) win.style.width = `${app.width}px`;
-                if (app.height) win.style.height = `${app.height}px`;
+                if (app.width && !isMobile()) win.style.width = `${app.width}px`;
+                if (app.height && !isMobile()) win.style.height = `${app.height}px`;
 
                 win.innerHTML = `
                     <div class="window-header">
@@ -62,13 +62,118 @@ document.addEventListener('DOMContentLoaded', () => {
             // Initialize Taskbar Drag & Drop Sorting
             initTaskbarSorting();
 
+            // Handle Mobile Layout
+            if (isMobile()) {
+                renderMobileHome(apps);
+            }
+
             // Load Content
             loadAppContents(apps);
 
             // Apply global settings
             applySettings();
+
+            // Initial Routing Check
+            handleRouting();
+
+            // Handle Window Resize
+            window.addEventListener('resize', () => {
+                if (isMobile()) {
+                    if (!document.querySelector('.mobile-app-grid')) renderMobileHome(apps);
+                } else {
+                    const grid = document.querySelector('.mobile-app-grid');
+                    if (grid) grid.remove();
+                }
+            });
+
+            // Handle Hash Routing
+            window.addEventListener('hashchange', handleRouting);
         })
         .catch(err => console.error("Failed to load apps.json", err));
+
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    function handleRouting() {
+        const hash = window.location.hash.substring(1);
+        if (hash) {
+            openApp(hash, false); // Don't push to history if we're already handling a change
+        } else {
+            closeAllApps();
+        }
+    }
+
+    function renderMobileHome(apps) {
+        const desktop = document.querySelector('.desktop');
+        if (document.querySelector('.mobile-app-grid')) return;
+
+        const grid = document.createElement('div');
+        grid.className = 'mobile-app-grid';
+        
+        apps.forEach(app => {
+            const item = document.createElement('div');
+            item.className = 'mobile-app-item';
+            item.innerHTML = `
+                <div class="mobile-app-icon">${app.icon}</div>
+                <div class="mobile-app-label">${app.tooltip}</div>
+            `;
+            item.addEventListener('click', () => {
+                openApp(app.id);
+            });
+            grid.appendChild(item);
+        });
+
+        // Add Floating Home Button
+        const homeBtn = document.createElement('div');
+        homeBtn.className = 'mobile-home-btn';
+        homeBtn.innerHTML = '::';
+        homeBtn.addEventListener('click', () => {
+            window.location.hash = '';
+        });
+        document.body.appendChild(homeBtn);
+
+        desktop.insertBefore(grid, dockContainer);
+    }
+
+    function closeAllApps() {
+        const windows = document.querySelectorAll('.os-window');
+        windows.forEach(win => {
+            win.classList.remove('active', 'minimized');
+        });
+        
+        const icons = document.querySelectorAll('.taskbar-icon');
+        icons.forEach(icon => icon.classList.remove('open'));
+
+        // Toggle UI visibility
+        if (isMobile()) {
+            dockContainer.classList.remove('hidden');
+            const homeBtn = document.querySelector('.mobile-home-btn');
+            if (homeBtn) homeBtn.classList.remove('visible');
+        }
+    }
+
+    function openApp(appId, updateHash = true) {
+        const targetWin = document.getElementById(`window-${appId}`);
+        const icon = document.querySelector(`.taskbar-icon[data-target="${appId}"]`);
+        
+        if (targetWin) {
+            closeAllApps(); // Only one app at a time
+            
+            targetWin.classList.add('active');
+            bringToFront(targetWin);
+            if (icon) icon.classList.add('open');
+            
+            if (updateHash) window.location.hash = appId;
+
+            // Toggle UI visibility on mobile
+            if (isMobile()) {
+                dockContainer.classList.add('hidden');
+                const homeBtn = document.querySelector('.mobile-home-btn');
+                if (homeBtn) homeBtn.classList.add('visible');
+            }
+        }
+    }
 
     function initOSMechanics() {
         // Bring window to front
@@ -88,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
             win.addEventListener('mousedown', () => bringToFront(win));
 
             header.addEventListener('mousedown', (e) => {
+                if (isMobile()) return; // Disable dragging on mobile
                 if (e.target.classList.contains('control-btn') || e.target.closest('.window-controls')) return;
                 if (win.classList.contains('maximized')) return;
 
@@ -121,10 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (btnClose) {
                 btnClose.addEventListener('click', () => {
-                    win.classList.remove('active', 'minimized');
-                    const appId = win.id.replace('window-', '');
-                    const icon = document.querySelector(`.taskbar-icon[data-target="${appId}"]`);
-                    if(icon) icon.classList.remove('open');
+                    window.location.hash = ''; // Clear hash to close
                 });
             }
 
@@ -146,19 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
         taskbarIcons.forEach(icon => {
             icon.addEventListener('click', () => {
                 const targetId = icon.getAttribute('data-target');
-                const targetWin = document.getElementById(`window-${targetId}`);
-                
-                if (targetWin) {
-                    if (targetWin.classList.contains('active') && targetWin.style.zIndex == highestZIndex) {
-                        targetWin.classList.remove('active');
-                        targetWin.classList.add('minimized');
-                    } else {
-                        targetWin.classList.remove('minimized');
-                        targetWin.classList.add('active');
-                        bringToFront(targetWin);
-                        icon.classList.add('open');
-                    }
-                }
+                openApp(targetId);
             });
         });
     }
